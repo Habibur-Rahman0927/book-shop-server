@@ -23,8 +23,7 @@ app.get('/', (req, res) => {
 
 
 client.connect(err => {
-  const productCollection = client.db(`${process.env.DB_NAME}`).collection("products");
-  console.log("database conceted");
+  const productCollection = client.db("bookshop").collection("products");
   app.post('/addProduct', (req, res) => {
       const products = req.body;
       productCollection.insertOne(products)
