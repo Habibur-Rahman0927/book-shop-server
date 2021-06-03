@@ -29,7 +29,7 @@ client.connect(err => {
       const products = req.body;
       productCollection.insertOne(products)
       .then(result => {
-          res.redirect('/')
+          res.send(result.insertedCount > 0)
       })
   })
 
